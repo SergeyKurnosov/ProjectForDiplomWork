@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Личная страница пользователя</title>
+    <link rel="icon" href="img/196817.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/196817.png" type="image/x-icon">
+    <style>
+        body{
+            background: linear-gradient(75deg, #1d75e8, #49e81d);
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #50b3a2;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header ul li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <img src="https://i.pinimg.com/originals/e9/66/b7/e966b7a2c6be0f6911c8e3148fe03aaf.gif"
+                 style="height: 75px">
+            <h1 th:text="${name}">Имя</h1>
+            <h2 th:text="${surname}">фамилия</h2>
+        </div>
+        <nav>
+            <ul>
+                <li class="current"><a href="/main_site">Главная</a></li>
+                <li><a href="/myAccrualsU">Мои платежи/начисления</a></li>
+                <li><a href="/myReceiptU">Получить квитанцию</a></li>
+                <li><a href="/authorizFormB">Моя виртуальная карта</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <section id="main">
+        <h1>Добро пожаловать на свою личную страничку!</h1>
+        <p>Здесь вы можете узнать свои данные и получить квитанцию (когда она сформируется).</p>
+    </section>
+</div>
+<div class="container banner-parallax">
+    <h1>Краткая информация</h1>
+    <div>
+        <ul>
+            <li>
+                <p>Имя: <span th:text="${name}">Имя</span></p>
+                <p>Фамилия: <span th:text="${surname}">Фамилия</span></p>
+                <p>Адрес: <span th:text="${address}">Адрес</span></p>
+                <p>Сектор: <span th:text="${sector}">Сектор</span></p>
+                <p>Площадь жилья: <span th:text="${area}">Площадь жилья</span></p>
+                <p>Кол-во жильцов: <span th:text="${countHumans}">Кол-во жильцов</span></p>
+                <p>Задолженность: <span th:text="${toPay}">Задолженность</span></p>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

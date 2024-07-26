@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты компании</title>
+    <link rel="icon" href="img/196817.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/196817.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUTExIVFRUXFxcXFxcVGBUXFxgYFRcXFxcXFxcYHSggGBolHRcXITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQ0OFQ8PFSsZFRkrKystKysrKy0tLSsrKy03NzctLS0tLS0rKy0tKystKzcrNysrLSstKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAAAAQIDBP/EACcQAQEBAAEDBAEEAwEAAAAAAAABEQIhMUESUWHwcYGRobHB0fET/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAECBQP/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8A6QlL8K9XBWCUz9gKp+hoLoJgG1SQgoWnfqCGl4/sv9AAmrJ8gsKJaCLLqVKC6qUoFKct/KcYKBVoGs4sSiJ6Rr0/KCpmNIQRTFIIkvhUlM6iriaatAkEWAWqlvgBTlUAE7tYlAgv5SgWnZF2AKhaCXp2KVOQq1MMw3QFtSLICah+gIuhIYFBYUQgktaFTFS8VgFD1KCYJWqBpaROQFpatAKVFoJIsiaugF5CekE5Qpifn9BTNXEu/fLWgiLhRGcGwEhxIAUipRCLsS1cFWwiSqIaiqozYvISIqgCAeEtFIuEVUZGk34A1MpVoIjVrNRVqT/pegKkPUSp0BdF38ICmGEgipY0zaItqfasiWirSFi9QT+l0wionRbE7raKECoJJ0NDANavRFBMw1KZoEW8klW0ErNW1YKiWi6CH5JCgv8A5z7KjPrvz/AK2BO4ytvueVtSCEKGAsq6zBRqVKQz9wORotBmLSJRV7QSCBIpUoppTPZMBYWJTAW1nCkBbUwz9zQU/BqAvrE9KCtaukSWLGF32A8gu9EsSe5ag1yLFSKJIvZUoEAASqchUlW1N/wvKoEpSJnuC2JSFA0AE5CpRUkaTTjMBJEq4tFTr7ovQCtcRLCVWFxnGr/xL8gYWmkRWpE0iRUahUgBatrP4UA05ALCiASNWsm98+AVMLURVlNT7S0C99Tut+UtFMC0l0EvddTFBPVPYa/QBLQtRWVOqpygJ/hRdFPUUlTBGtS8iU6ge3stTYtAtEpQXwaml/hKpxrVZlKBqanJeQFOpi32BLfCaVYDMaTl9/BwgqyJvssKCYJtUBTEnwrKyJoWgLazGoBS0AXSpIfAFWVIQFhUTsChugC1nTe6KKgBJ3VFvkEN8HIgAX7EFa1NEBRdBEiy9UFRWOVatQC0RLf4RWqFPyqLRDQIus61b4BZWRO4LD1IfKK1KiQoLnutYi6EXeqypF0CmrUwU/snIpgJAwBOoqgn9nlam/0ItZaxLBENS0ncVZhUtWAQiRVQpEvZQIlqmIqpasSwCLhEvkDiLKgLFiRRTDQgKnhZCAzRZQE+/egbPcBpDSCF8mLerNERmxTRUqqkBUqxn/akWLhoirgpREStcUs6Cpq0AJBFAlUigGrgBqVTAEsMOQJ6Z9oeoFYn8ta4ca1ojrajPqNBYnJNLyBbTWKsuiNUvVGdFdJGrfLn6l5cgdDWZyLyBoZ1NBo1jWtAJWUlBvy1K5616gb0jFpaK3KMQvIRrS33YtNFXRnQHn4N3sAi8i9gBpABKXyAHj9yeAEWl7ICt8SgBFgAif6AA4+AFXi1/oBESgK1fv8ACcgBiKCCgKr/2Q==");
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #f4f4f4;
+            color: #000000;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #49e81d 3px solid;
+        }
+
+        header a {
+            color: #000000;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding {
+            float: left;
+        }
+
+        header #branding h1 {
+            margin: 0;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+
+        header .highlight, header .current a {
+            color: #1d75e8;
+            font-weight: bold;
+        }
+
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <img src="https://i.pinimg.com/originals/e9/66/b7/e966b7a2c6be0f6911c8e3148fe03aaf.gif"
+                 style="height: 75px">
+            <a href="#0" title="Конструктор сайтов - Art Builder">HomeЯК </a>
+        </div>
+        <nav>
+            <ul>
+                <li class="current"><a href="/main_site">Главная</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="container banner-parallax">
+    <h1>Контактная информация</h1>
+    <div th:if="${!contacts.isEmpty()}">
+        <ul>
+            <li th:each="contact : ${contacts}">
+                <p>Имя: <span th:text="${contact.name}">Имя</span></p>
+                <p>Телефон: <span th:text="${contact.tel}">Телефон</span></p>
+                <p>Адрес: <span th:text="${contact.address}">Адрес</span></p>
+            </li>
+        </ul>
+    </div>
+    <div th:if="${contacts.isEmpty()}">
+        <p>Контактная информация в данный момент отсутствует.</p>
+    </div>
+</div>
+</body>
+</html>

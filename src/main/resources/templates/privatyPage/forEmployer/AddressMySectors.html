@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Адреса моего сектора</title>
+    <link rel="icon" href="img/196817.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/196817.png" type="image/x-icon">
+    <style>
+        body{
+            background: linear-gradient(75deg, #1d75e8, #49e81d);
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #50b3a2;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        header ul li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding {
+            float: left;
+        }
+
+        header #branding h1 {
+            margin: 0;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .list-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .list-block {
+            width: 48%;
+            padding: 20px;
+            border: 1px solid #74d51c;
+            background-color: #d6d6d6;
+        }
+
+        .list-block h2 {
+            margin-bottom: 15px;
+        }
+
+        .list-block ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .list-block ul li {
+            padding: 5px 0;
+            border-bottom: 1px solid #e41414;
+        }
+
+        .list-block ul li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <img src="https://i.pinimg.com/originals/e9/66/b7/e966b7a2c6be0f6911c8e3148fe03aaf.gif"
+                 style="height: 75px">
+        </div>
+        <nav>
+            <ul>
+                <li class="current"><a href="/main_site">Главная</a></li>
+                <li><a href="/">Адреса моего сектора</a></li>
+                <li><a href="/formCreateReceipt">Создать квитанцию</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <section id="main">
+    </section>
+</div>
+
+<div class="list-container container banner-parallax">
+    <div class="list-block">
+        <h2>Адреса</h2>
+        <div th:if="${!homeAddresses.isEmpty()}">
+            <ul>
+                <li th:each="address : ${homeAddresses}">
+                    <p>Адрес: <span th:text="${address.homeAddress}">адресс</span></p>
+                    <p>Сектор: <span th:text="${address.homeSector}">сектор</span></p>
+                    <p>Лицевой счет: <span th:text="${address.personalAccount}">лицевой счет</span></p>
+                    <p>ID владельца: <span th:text="${address.homeOwner.ownerId}">id владельца</span></p>
+                    <p>Задолженность: <span th:text="${address.areasPayment}">задолженность</span></p>
+                </li>
+            </ul>
+        </div>
+        <div th:if="${homeAddresses.isEmpty()}">
+            <p>Контактная информация в данный момент отсутствует.</p>
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>

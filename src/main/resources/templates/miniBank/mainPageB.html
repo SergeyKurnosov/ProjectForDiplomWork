@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница виртуальной карты</title>
+    <link rel="icon" href="img/196817.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/196817.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #50b3a2;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header ul li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <img src="https://i.pinimg.com/originals/e9/66/b7/e966b7a2c6be0f6911c8e3148fe03aaf.gif"
+                 style="height: 75px">
+            <h1 th:text="${login1}">Логин</h1>
+        </div>
+        <nav>
+            <ul>
+                <li class="current"><a href="/main_site">Главная</a></li>
+                <li><a href="/topUpFormB">Пополнить карту</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <section id="main">
+        <h1>Добро пожаловать на личную страницу вашей виртуальной карты!</h1>
+        <p>Здесь вы можете узнать баланс и пополнить вашу виртуальную карту.</p>
+        <p>Никому не сообщайте ваш пароль и последние 3 цифры на обратной стороне вашей карты.</p>
+    </section>
+</div>
+<div class="container banner-parallax">
+    <h1>Краткая информация</h1>
+    <div>
+        <ul>
+            <li>
+                <p>Логин: <span th:text="${login2}">Логин</span></p>
+                <p>Телефон: <span th:text="${tel}">Телефон</span></p>
+                <p>Имя Банка: <span th:text="${nameBank}">Имя Банка</span></p>
+                <p>Номер карты: <span th:text="${numberCard}">Номер карты</span></p>
+                <p>Система платежей: <span th:text="${nameSystem}">Система платежей</span></p>
+                <p>Дата карты: <span th:text="${dateCard}">Дата карты</span></p>
+                <p>Баланс карты: <span th:text="${balance}">Баланс карты</span></p>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

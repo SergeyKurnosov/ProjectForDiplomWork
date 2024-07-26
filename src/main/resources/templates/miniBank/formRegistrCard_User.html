@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация новой карты</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Регистрация новой виртуальной карты</h2>
+    <form action="/registerB" method="post">
+
+        <label for="login">Логин:</label>
+        <input type="text" id="login" name="login" required>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="tel">Номер привязанного к карте телефона:</label>
+        <input type="number" step="0.01" id="tel" name="tel">
+
+        <label for="nameBank">Название банка:</label>
+        <input type="text" id="nameBank" name="nameBank" required>
+
+        <label for="numberCard">Номер карты:</label>
+        <input type="number" id="numberCard" name="numberCard" required>
+
+        <label for="nameSystem">Платежная система:</label>
+        <input type="text" id="nameSystem" name="nameSystem" required>
+
+        <label for="NameHold">Имя Фамилия владельца карты:</label>
+        <input type="text" id="NameHold" name="NameHold" required>
+
+        <label for="dateCard">Срок действия карты:</label>
+        <input type="text" id="dateCard" name="dateCard" required>
+
+        <label for="cvv">Последние 3 цифры на обратной стороне карты:</label>
+        <input type="number" id="cvv" name="cvv" required>
+
+
+
+        <button type="submit">Зарегистрировать</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Владельцы</title>
+    <link rel="icon" href="img/196817.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/196817.png" type="image/x-icon">
+    <style>
+        body{
+            background: linear-gradient(75deg, #1d75e8, #49e81d);
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .article-title {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .article-content {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .article-date {
+            font-size: 14px;
+            color: #888;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #50b3a2;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        header ul li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding {
+            float: left;
+        }
+
+        header #branding h1 {
+            margin: 0;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form div {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #337ab7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #286090;
+        }
+
+        .register {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .register a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+
+        .register a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <img src="https://i.pinimg.com/originals/e9/66/b7/e966b7a2c6be0f6911c8e3148fe03aaf.gif"
+                 style="height: 75px">
+
+        </div>
+        <nav>
+            <ul>
+                <li class="current"><a href="/main_site">Главная</a></li>
+                <li class="current"><a href="/panelA">Панель админа</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+
+<div class="container">
+    <section id="main">
+        <div class="container banner-parallax">
+            <h1>Владельцы</h1>
+
+            <div class="container">
+                <form action="/get-owner" method="post">
+                    <div>
+                        <label for="id">введите id владельца</label>
+                        <input type="text" id="id" name="id" required>
+                    </div>
+                    <div>
+                        <button type="submit">Поиск</button>
+                    </div>
+                </form>
+            </div>
+
+            <form action="/new-owner" method="get">
+                <input type="submit" value="Добавить ➕ нового"/>
+            </form>
+
+            <div th:if="${!owners.isEmpty()}">
+                <ul>
+                    <li th:each="owner : ${owners}">
+
+                        <div class="article-container">
+                            <h1 class="article-title" th:text="${owner.name}">Имя</h1>
+                            <div class="article-content" th:text="${owner.surname}">
+                                Фамилия
+                            </div>
+                            <h4 class="article-content" th:text="${owner.dateBirth}">
+                                Дата рождения878787878777878
+                            </h4>
+                            <div class="article-content" th:text="${owner.passportDetails}">
+                                Паспортные данные
+
+                            </div>
+                            <div class="article-content" th:text="${owner.ownerId}">
+                                ID Владельца
+                            </div>
+
+                            <form action="/update-Owner" method="post">
+                                <input type="hidden" name="Id" th:value="${owner.id}"/>
+                                <input type="submit" value="Изменить фамилию владельца"/>
+                            </form>
+
+                            <form action="/delete-owner" method="post">
+                                <input type="hidden" name="Id" th:value="${owner.id}"/>
+                                <input type="submit" value="❌"/>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <div th:if="${owners.isEmpty()}">
+                <p>К сожалению владельцев нет.</p>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var header = document.querySelectorAll('h4');
+        var maxLength = 10;
+
+        header.forEach(function(header) {
+            if (header.textContent.length > maxLength) {
+                header.textContent = header.textContent.substring(0, maxLength);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
