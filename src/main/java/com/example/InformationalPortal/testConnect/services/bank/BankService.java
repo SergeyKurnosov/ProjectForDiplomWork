@@ -116,9 +116,9 @@ public class BankService {
 
         try {
             BankBalance bankBalance = bankBalanceRepository.findByCardNumber(card.getCardNumber()).get();
-            Integer balance = Integer.valueOf(bankBalance.getCardBalance());
-            Integer topUp = Integer.valueOf(amount);
-            Integer sum = balance + topUp;
+            Double balance = Double.valueOf(bankBalance.getCardBalance());
+            Double topUp = Double.valueOf(amount);
+            Double sum = balance + topUp;
             bankBalanceRepository.updateBankBalanceByCardNumber(card.getCardNumber(), String.valueOf(sum));
             return true;
         } catch (Exception e) {
